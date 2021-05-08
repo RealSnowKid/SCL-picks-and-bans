@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Pnb from './pnb';
+import Kevingpoep from './kevingpoep';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Pnb />
+    {/* <Kevingpoep /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
