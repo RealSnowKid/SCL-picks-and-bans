@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-function GodPick({ God, Hover, Role }) {
+function GodPick({ God, Hover, Role, Active }) {
     const [god, setGod] = useState("");
     const [god2, setGod2] = useState("");
     const [hover, setHover] = useState(true);
     const [role, setRole] = useState("");
+    const [active, setActive] = useState("");
     let url;
     let varClassName;
+    let varClassNameHover;
     let varContainerClassName;
+    let varBlinkerClassName;
 
     useEffect(() => {
         setGod(God.toString().toLowerCase());
         setGod2(God.toString().toLowerCase());
         setHover(Hover);
         setRole(Role);
-    }, [God, Hover, Role]);
+        setActive(Active);
+    }, [God, Hover, Role, Active]);
 
     console.log("God " + god);
     console.log("God2 " + god2);
@@ -37,33 +41,39 @@ function GodPick({ God, Hover, Role }) {
             }
         }
         url = "https://webcdn.hirezstudios.com/smite/god-skins/" + god + "_standard-" + god2 + ".jpg";
+        varClassName = god2;
         if (hover) {
-            varClassName = god2 + " hover";
+            varClassNameHover = "hover-" + role;
         }
         else {
-            varClassName = god2;
+            varClassNameHover = "hover-" + role + " locked";
         }
+
     }
     else {
         url = "https://i.imgur.com/1ghlJ1q.png";
-        varClassName = "bg-contain ml-24 mt-small-logo w-1/3";
+        varClassName = "bg-contain m-small-logo w-1/3";
     }
 
     if (role != "") {
-        if (role == "adc") {
+        if (role == "adc" || role == "adc-2") {
             varContainerClassName = "h-32 w-80 mx-2 mt-2 bg-black overflow-hidden";
         }
-        else if (role == "solo") {
+        else if (role == "solo" || role == "solo-2") {
             varContainerClassName = "h-32 w-80 mx-2 mb-2 bg-black overflow-hidden";
         }
         else {
             varContainerClassName = "h-32 w-80 mx-2 my-2 bg-black overflow-hidden"
         }
+        varBlinkerClassName = "blinker-" + role;
     }
 
     return (
         <div className={varContainerClassName}>
             <img src={url} className={varClassName} alt={"pick-" + role} />
+            {/* <h2 className="text-white relative top-7">Nike</h2> */}
+            <div className={varClassNameHover}><img></img></div>
+            { active ? <div className={varBlinkerClassName}></div> : <> </>}
         </div>
     );
 }

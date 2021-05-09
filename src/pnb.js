@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './pnb.css';
 import GodPick from './components/godPick';
-import ReactAnime from 'react-animejs';
 import { FaBan } from "react-icons/fa";
-const { Anime, stagger } = ReactAnime;
 
 function Pnb() {
     return (
@@ -53,22 +51,22 @@ function Pnb() {
             </div>
             <div className="flex flex-row h-4/6">
                 <div className="flex flex-col bg-gradient-to-r from-snl-dark-lighter to-black w-2/6 py-3">
-                    <GodPick God="Zhong Kui" Hover={false} Role="solo" />
-                    <GodPick God="Cu Chulainn" Hover={true} Role="jung" />
-                    <GodPick God="Anhur" Hover={true} Role="mid" />
-                    <GodPick God="Erlang Shen" Hover={true} Role="supp" />
-                    <GodPick God="Aphrodite" Hover={true} Role="adc" />
+                    <GodPick God="" Hover={true} Role="solo" Active={false} />
+                    <GodPick God="" Hover={true} Role="jung" Active={false} />
+                    <GodPick God="" Hover={true} Role="mid" Active={false} />
+                    <GodPick God="" Hover={true} Role="supp" Active={false} />
+                    <GodPick God="" Hover={true} Role="adc" Active={false} />
                 </div>
                 <div className="absolute inset-y-1/6 inset-x-1/6+ my-3 h-auto w-auto bg-white"></div>
                 <div className="items-center bg-black w-2/5">
 
                 </div>
                 <div className="flex flex-col items-end bg-gradient-to-l from-snl-yellow to-black w-2/6 py-3">
-                    <GodPick God="Apollo" Hover={true} Role="solo" />
-                    <GodPick God="Ratatoskr" Hover={true} Role="jung" />
-                    <GodPick God="Xing Tian" Hover={true} Role="mid" />
-                    <GodPick God="Discordia" Hover={true} Role="supp" />
-                    <GodPick God="" Hover={true} Role="adc" />
+                    <GodPick God="" Hover={true} Role="solo-2" Active={false} />
+                    <GodPick God="" Hover={true} Role="jung-2" Active={false} />
+                    <GodPick God="" Hover={true} Role="mid-2" Active={false} />
+                    <GodPick God="" Hover={true} Role="supp-2" Active={false} />
+                    <GodPick God="" Hover={true} Role="adc-2" Active={false} />
                 </div>
             </div >
             <div className="flex w-full h-1/6">
@@ -102,23 +100,23 @@ function Pnb() {
                 <div className="bg-gradient-to-l from-snl-yellow to-black w-2/6">
                     <div className="flex flex-row-reverse mr-5 ban-box">
                         <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right bg-achilles-portrait"><img src="https://webcdn.hirezstudios.com/smite/god-icons/guan-yu.jpg" alt="ban1" /></div>
+                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/guan-yu.jpg" alt="ban1" /></div>
                         </div>
                         <FaBan className="text-red-600 text-3xl absolute right-ban-1 mt-24" />
                         <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right bg-achilles-portrait"><img src="https://webcdn.hirezstudios.com/smite/god-icons/set.jpg" alt="ban2" /></div>
+                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/set.jpg" alt="ban2" /></div>
                         </div>
                         <FaBan className="text-red-600 text-3xl absolute right-ban-2 mt-24" />
                         <div className="bans-right ml-12 mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right bg-achilles-portrait"><img src="https://webcdn.hirezstudios.com/smite/god-icons/tsukuyomi.jpg" alt="ban3" /></div>
+                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/tsukuyomi.jpg" alt="ban3" /></div>
                         </div>
                         <FaBan className="text-red-600 text-3xl absolute right-ban-3 mt-24" />
                         <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right bg-achilles-portrait"><img src="https://webcdn.hirezstudios.com/smite/god-icons/nemesis.jpg" alt="ban4" /></div>
+                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/nemesis.jpg" alt="ban4" /></div>
                         </div>
                         <FaBan className="text-red-600 text-3xl absolute right-ban-4 mt-24" />
                         <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right bg-achilles-portrait"><img src="https://webcdn.hirezstudios.com/smite/god-icons/fenrir.jpg" alt="ban5" /></div>
+                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/fenrir.jpg" alt="ban5" /></div>
                         </div>
                         <FaBan className="text-red-600 text-3xl absolute right-ban-5 mt-24" />
                     </div>
