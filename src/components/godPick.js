@@ -57,13 +57,13 @@ function GodPick({ God, Hover, Role, Active }) {
 
     if (role != "") {
         if (role == "adc" || role == "adc-2") {
-            varContainerClassName = "h-32 w-80 mx-2 mt-2 bg-black overflow-hidden";
+            varContainerClassName = "h-32 w-80 mx-2 mt-2 bg-black overflow-hidden border-2 border-white";
         }
         else if (role == "solo" || role == "solo-2") {
-            varContainerClassName = "h-32 w-80 mx-2 mb-2 bg-black overflow-hidden";
+            varContainerClassName = "h-32 w-80 mx-2 mb-2 bg-black overflow-hidden border-2 border-white";
         }
         else {
-            varContainerClassName = "h-32 w-80 mx-2 my-2 bg-black overflow-hidden"
+            varContainerClassName = "h-32 w-80 mx-2 my-2 bg-black overflow-hidden border-2 border-white"
         }
         varBlinkerClassName = "blinker-" + role;
     }

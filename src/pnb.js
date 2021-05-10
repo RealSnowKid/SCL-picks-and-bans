@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './pnb.css';
 import GodPick from './components/godPick';
+import GodBan from './components/godBan';
 import { FaBan } from "react-icons/fa";
 
 function Pnb() {
@@ -51,7 +52,7 @@ function Pnb() {
             </div>
             <div className="flex flex-row h-4/6">
                 <div className="flex flex-col bg-gradient-to-r from-snl-dark-lighter to-black w-2/6 py-3">
-                    <GodPick God="" Hover={true} Role="solo" Active={false} />
+                    <GodPick God="Anhur" Hover={false} Role="solo" Active={false} />
                     <GodPick God="" Hover={true} Role="jung" Active={false} />
                     <GodPick God="" Hover={true} Role="mid" Active={false} />
                     <GodPick God="" Hover={true} Role="supp" Active={false} />
@@ -62,8 +63,8 @@ function Pnb() {
 
                 </div>
                 <div className="flex flex-col items-end bg-gradient-to-l from-snl-yellow to-black w-2/6 py-3">
-                    <GodPick God="" Hover={true} Role="solo-2" Active={false} />
-                    <GodPick God="" Hover={true} Role="jung-2" Active={false} />
+                    <GodPick God="Geb" Hover={true} Role="solo-2" Active={true} />
+                    <GodPick God="" Hover={true} Role="jung-2" Active={true} />
                     <GodPick God="" Hover={true} Role="mid-2" Active={false} />
                     <GodPick God="" Hover={true} Role="supp-2" Active={false} />
                     <GodPick God="" Hover={true} Role="adc-2" Active={false} />
@@ -72,26 +73,11 @@ function Pnb() {
             <div className="flex w-full h-1/6">
                 <div className="bg-gradient-to-r from-snl-dark-lighter to-black w-2/6">
                     <div className="flex ml-5 ban-box">
-                        <div className="bans-left mx-2 overflow-hidden">
-                            <div className="ban-god-icon-left"><img src="https://webcdn.hirezstudios.com/smite/god-icons/tiamat.jpg" alt="ban1" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute left-ban-1 mt-24" />
-                        <div className="bans-left mx-2 overflow-hidden">
-                            <div className="ban-god-icon-left"><img src="https://webcdn.hirezstudios.com/smite/god-icons/scylla.jpg" alt="ban2" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute left-ban-2 mt-24" />
-                        <div className="bans-left ml-2 mr-12 overflow-hidden">
-                            <div className="ban-god-icon-left"><img src="https://webcdn.hirezstudios.com/smite/god-icons/janus.jpg" alt="ban3" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute left-ban-3 mt-24" />
-                        <div className="bans-left mx-2 overflow-hidden">
-                            <div className="ban-god-icon-left"><img src="https://webcdn.hirezstudios.com/smite/god-icons/the-morrigan.jpg" alt="ban4" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute left-ban-4 mt-24" />
-                        <div className="bans-left mx-2 overflow-hidden">
-                            <div className="ban-god-icon-left"><img src="https://webcdn.hirezstudios.com/smite/god-icons/hel.jpg" alt="ban5" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute left-ban-5 mt-24" />
+                        <GodBan God="Anhur" Number={1} Position="left" Active={false} />
+                        <GodBan God="" Number={2} Position="left" Active={true} />
+                        <GodBan God="" Number={3} Position="left" Active={false} />
+                        <GodBan God="" Number={4} Position="left" Active={false} />
+                        <GodBan God="" Number={5} Position="left" Active={false} />
                     </div>
                 </div>
                 <div className="bg-black w-2/5">
@@ -99,26 +85,11 @@ function Pnb() {
                 </div>
                 <div className="bg-gradient-to-l from-snl-yellow to-black w-2/6">
                     <div className="flex flex-row-reverse mr-5 ban-box">
-                        <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/guan-yu.jpg" alt="ban1" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute right-ban-1 mt-24" />
-                        <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/set.jpg" alt="ban2" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute right-ban-2 mt-24" />
-                        <div className="bans-right ml-12 mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/tsukuyomi.jpg" alt="ban3" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute right-ban-3 mt-24" />
-                        <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/nemesis.jpg" alt="ban4" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute right-ban-4 mt-24" />
-                        <div className="bans-right mx-2 overflow-hidden">
-                            <div className="ban-god-icon-right"><img src="https://webcdn.hirezstudios.com/smite/god-icons/fenrir.jpg" alt="ban5" /></div>
-                        </div>
-                        <FaBan className="text-red-600 text-3xl absolute right-ban-5 mt-24" />
+                        <GodBan God="Geb" Number={1} Position="right" Active={false} />
+                        <GodBan God="" Number={2} Position="right" Active={true} />
+                        <GodBan God="" Number={3} Position="right" Active={false} />
+                        <GodBan God="" Number={4} Position="right" Active={false} />
+                        <GodBan God="" Number={5} Position="right" Active={false} />
                     </div>
                 </div>
             </div>
