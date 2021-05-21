@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './pnb.css';
 import GodPick from './components/godPick';
 import GodBan from './components/godBan';
-import { FaBan } from "react-icons/fa";
 
 function Pnb() {
     return (

@@ -27,11 +27,11 @@ function GodPick({ God, Hover, Role, Active }) {
 
     if (god !== "") {
         if (god.match(/([A-z]+[ ]{1,})+[A-z]+/g)) {
-            if (god == "ah muzen cab") {
+            if (god === "ah muzen cab") {
                 setGod("ah_muzen_cab");
                 setGod2("ah-muzen-cab");
             }
-            else if (god == "da ji") {
+            else if (god === "da ji") {
                 setGod(god.replace(/[ ]{1,}/g, "_"));
                 setGod2("daji");
             }
@@ -55,11 +55,11 @@ function GodPick({ God, Hover, Role, Active }) {
         varClassName = "bg-contain m-small-logo";
     }
 
-    if (role != "") {
-        if (role == "adc" || role == "adc-2") {
+    if (role !== "") {
+        if (role === "adc" || role === "adc-2") {
             varContainerClassName = "h-32 w-80 mx-2 mt-2 bg-black overflow-hidden border-2 border-white";
         }
-        else if (role == "solo" || role == "solo-2") {
+        else if (role === "solo" || role === "solo-2") {
             varContainerClassName = "h-32 w-80 mx-2 mb-2 bg-black overflow-hidden border-2 border-white";
         }
         else {
@@ -72,7 +72,7 @@ function GodPick({ God, Hover, Role, Active }) {
         <div className={varContainerClassName}>
             <img src={url} className={varClassName} alt={"pick-" + role} />
             {/* <h2 className="text-white relative top-7">Nike</h2> */}
-            <div className={varClassNameHover}><img></img></div>
+            <div className={varClassNameHover}><img alt="hover"></img></div>
             { active ? <div className={varBlinkerClassName}></div> : <> </>}
         </div>
     );

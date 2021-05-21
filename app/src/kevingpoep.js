@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import GodPick from './components/godPick';
 
 function Kevingpoep() {
-    const [className, setClassName] = useState("bg-black effect-dup");
-    const [className2, setClassName2] = useState("bg-black effect-dup");
-
     return (
         <div className="flex flex-col h-screen">
             <div className="flex w-full h-full">

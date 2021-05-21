@@ -18,8 +18,8 @@ function GodBan({ God, Number, Position, Active }) {
         setActive(Active);
     }, [God, Number, Position, Active])
 
-    if (number == 3) {
-        if (position == "left") {
+    if (number === 3) {
+        if (position === "left") {
             divClassName = "bans-left ml-2 mr-12 overflow-hidden border-2 border-white";
         }
         else {
@@ -38,7 +38,7 @@ function GodBan({ God, Number, Position, Active }) {
         imgClassName = "";
     }
     else {
-        if (position == "left") {
+        if (position === "left") {
             imgUrl = "https://i.imgur.com/Bx0iFjJ.png";
             imgClassName = "w-1/3 mx-3 p-1";
             blinkerClassName = "blinker-ban-left";
