@@ -338,7 +338,7 @@ export default function Controller() {
                 </div>
                 <div className="w-1/2 h-full bg-snl-dark">
                     <div className="w-full flex">
-                        <MatchInfo message={things} />
+                        <MatchInfo message={things} stepNumber={step}/>
                     </div>
                 </div>
             </div>
