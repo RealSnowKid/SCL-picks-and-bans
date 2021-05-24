@@ -8,10 +8,6 @@ export default function Controller() {
     // eslint-disable-next-line
     const [step, setStep] = useState(0);
 
-    function updateStep(newValue) {
-        setStep(newValue);
-    };
-
     let json = [
         {
             matchScoreT1: 0,
@@ -149,7 +145,7 @@ export default function Controller() {
                 </div>
                 <div className="w-1/2 h-full bg-snl-dark">
                     <div className="w-full flex">
-                        <MatchInfo message={things} updateFunction={updateStep} />
+                        <MatchInfo message={things} />
                     </div>
                 </div>
             </div>

@@ -1,8 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import useCountDown from 'react-countdown-hook';
 import Currently from './currently';
+import Timer from './timer';
+
 
 export default function MatchInfo({ message }) {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    
+    //#region stepNumber and functions
+    const [stepNumber, setStepNumber] = useState(1); 
+    const isOrderPaused = () => {
+        if(stepNumber == 1 || stepNumber == 3 || stepNumber == 5 || stepNumber == 7 || stepNumber == 9 || stepNumber == 12 || stepNumber == 14 || stepNumber == 16)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    const isChaosPaused = () => {
+        if(stepNumber == 2 || stepNumber == 4 || stepNumber == 6 || stepNumber == 8 || stepNumber == 10 || stepNumber == 11 || stepNumber == 13 || stepNumber == 15 || stepNumber == 17)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    //#endregion
 
     useEffect(() => {
         setData(message);
@@ -18,6 +43,11 @@ export default function MatchInfo({ message }) {
                     </div>
                     <div className="flex flex-col">
                         <h1 className="mx-auto">Currently</h1>
+                        {/* fancy timers order and chaos */}
+                        {/* button to manually update to next step */}
+                        <button onClick={() => {setStepNumber(stepNumber + 1);}}>setStepNumber + 1</button> 
+                        <Timer stepNumber={stepNumber} pickSide={0} paused={isOrderPaused()} color={"blue"}/>
+                        <Timer stepNumber={stepNumber} pickSide={1} paused={isChaosPaused()} color={"red"}/>
                         <Currently data={data[0]} />
                     </div>
                     <div className="flex">
