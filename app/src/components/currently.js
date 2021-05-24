@@ -42,31 +42,31 @@ export default function Currently({ data }) {
         case details.cb1 === true:
             text = "Chaos First Ban"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /> </h1>
             );
 
         case details.cb2 === true:
             text = "Chaos Second Ban"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cb3 === true:
             text = "Chaos Third Ban"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cb4 === true:
             text = "Chaos Fourth Ban"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cb5 === true:
             text = "Chaos Fifth Ban"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.op1 === true:
@@ -98,31 +98,31 @@ export default function Currently({ data }) {
         case details.cp1 === true:
             text = "Chaos First Pick"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cp2 === true:
             text = "Chaos Second Pick"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cp3 === true:
             text = "Chaos Third Pick"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cp4 === true:
             text = "Chaos Fourth Pick"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         case details.cp5 === true:
             text = "Chaos Fifth Pick"
             return (
-                <h1 className="flex"><ImArrowRight className="mr-2 mt-1" /> {text}</h1>
+                <h1 className="flex">{text} <ImArrowRight className="ml-2 mt-1" /></h1>
             );
 
         default:

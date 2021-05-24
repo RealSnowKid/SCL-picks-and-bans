@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Currently from './currently';
+import SmallGodPick from './smallGodPick';
+import SmallGodBan from './smallGodBan';
 
 export default function MatchInfo({ message }) {
     const [data, setData] = useState([])
@@ -26,14 +28,80 @@ export default function MatchInfo({ message }) {
                     </div>
                 </div>
                 <hr className="h-1 border-white bg-white" />
-                <div className="flex flex-row">
+                <div className="flex flex-row text-white ">
                     <div className="w-1/2">
                         <div className="flex flex-col ml-10">
                             <div className="flex">
-                                <h1 className="text-white text-2xl mt-1">{data[1].name}</h1>
+                                <h1 className="text-2xl mt-1">{data[1].name}</h1>
                                 <img src={data[1].logo} className="h-10 mx-3" alt="team1logo"></img>
                             </div>
-                            <h1 className="text-white text-lg">({data[1].leagueScore})</h1>
+                            <h1 className="text-lg">({data[1].leagueScore})</h1>
+                            <h1 className="text-2xl">BANS:</h1>
+                            <div className="flex border-b-4">
+                                <div>
+                                    <div className="w-16 h-16 bg-black mr-2">
+                                        <SmallGodBan God={data[1].ban1} Role="solo-1" />
+                                    </div>
+                                    <h1 className="text-xl text-center">Ban 1</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black mx-2">
+                                        <SmallGodBan God={data[1].ban2} Role="jung-1" />
+                                    </div>
+                                    <h1 className="text-xl text-center">Ban 2</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black mx-2">
+                                        <SmallGodBan God={data[1].ban3} Role="mid-1" />
+                                    </div>
+                                    <h1 className="text-xl text-center">Ban 3</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black mx-2">
+                                        <SmallGodBan God={data[1].ban4} Role="supp-1" />
+                                    </div>
+                                    <h1 className="text-xl text-center">Ban 4</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black mx-2">
+                                        <SmallGodBan God={data[1].ban5} Role="adc-1" />
+                                    </div>
+                                    <h1 className="text-xl text-center">Ban 5</h1>
+                                </div>
+                            </div>
+                            <h1 className="text-2xl">Picks:</h1>
+                            <div className="flex-column">
+                                <div>
+                                    <div className="w-16 h-16 bg-black my-2">
+                                        <SmallGodPick God={data[1].pick1} Role="solo-1" />
+                                    </div>
+                                    <h1 className="text-xl mx-2">Pick 1</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black my-2">
+                                        <SmallGodPick God={data[1].pick2} Role="jung-1" />
+                                    </div>
+                                    <h1 className="text-xl mx-2">Pick 2</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black my-2">
+                                        <SmallGodPick God={data[1].pick3} Role="mid-1" />
+                                    </div>
+                                    <h1 className="text-xl mx-2">Pick 3</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black my-2">
+                                        <SmallGodPick God={data[1].pick4} Role="supp-1" />
+                                    </div>
+                                    <h1 className="text-xl mx-2">Pick 4</h1>
+                                </div>
+                                <div>
+                                    <div className="w-16 h-16 bg-black my-2">
+                                        <SmallGodPick God={data[1].pick5} Role="adc-1" />
+                                    </div>
+                                    <h1 className="text-xl mx-2">Pick 5</h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="w-1/2 flex flex-col items-end mr-10">
@@ -42,6 +110,72 @@ export default function MatchInfo({ message }) {
                             <h1 className="text-white text-2xl mt-1">{data[2].name}</h1>
                         </div>
                         <h1 className="text-white text-lg">({data[2].leagueScore})</h1>
+                        <h1 className="text-2xl">BANS:</h1>
+                        <div className="flex border-b-4">
+                            <div>
+                                <div className="w-16 h-16 bg-black mx-2">
+                                    <SmallGodBan God={data[2].ban1} Role="solo-1" />
+                                </div>
+                                <h1 className="text-xl text-center">Ban 1</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black mx-2">
+                                    <SmallGodBan God={data[2].ban2} Role="jung-1" />
+                                </div>
+                                <h1 className="text-xl text-center">Ban 2</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black mx-2">
+                                    <SmallGodBan God={data[2].ban3} Role="mid-1" />
+                                </div>
+                                <h1 className="text-xl text-center">Ban 3</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black mx-2">
+                                    <SmallGodBan God={data[2].ban4} Role="supp-1" />
+                                </div>
+                                <h1 className="text-xl text-center">Ban 4</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black ml-2">
+                                    <SmallGodBan God={data[2].ban5} Role="adc-1" />
+                                </div>
+                                <h1 className="text-xl text-center">Ban 5</h1>
+                            </div>
+                        </div>
+                        <h1 className="text-2xl">Picks:</h1>
+                        <div className="flex-column">
+                            <div>
+                                <div className="w-16 h-16 bg-black my-2">
+                                    <SmallGodPick God={data[2].pick1} Role="solo-2" />
+                                </div>
+                                <h1 className="text-xl mx-2">Pick 1</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black my-2">
+                                    <SmallGodPick God={data[2].pick2} Role="jung-2" />
+                                </div>
+                                <h1 className="text-xl mx-2">Pick 2</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black my-2">
+                                    <SmallGodPick God={data[2].pick3} Role="mid-2" />
+                                </div>
+                                <h1 className="text-xl mx-2">Pick 3</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black my-2">
+                                    <SmallGodPick God={data[2].pick4} Role="supp-2" />
+                                </div>
+                                <h1 className="text-xl mx-2">Pick 4</h1>
+                            </div>
+                            <div>
+                                <div className="w-16 h-16 bg-black my-2">
+                                    <SmallGodPick God={data[2].pick5} Role="adc-2" />
+                                </div>
+                                <h1 className="text-xl mx-2">Pick 5</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
