@@ -1,6 +1,5 @@
-import Reclear, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import useCountDown from 'react-countdown-hook';
-import Currently from './currently';
 
 
 export default function Timer({stepNumber, pickSide, paused, color}) {
