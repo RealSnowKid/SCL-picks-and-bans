@@ -32,7 +32,7 @@ export default function GodList({pickedGods, pickNumber}) {
     useEffect(async () => {
         await axios.get("https://smitenoobleague.xyz/smiteapi-service/God").then(res => {
             setGods(res.data.filter(isNotPicked));
-            setFilteredGods(gods.filter(isNotPicked));
+            setFilteredGods(res.data.filter(isNotPicked));
         }).catch(err => {console.log(err);});
     }, []);
     //run everytime pickedGods get updated
