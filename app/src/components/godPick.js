@@ -20,11 +20,6 @@ function GodPick({ God, Hover, Role, Active }) {
         setActive(Active);
     }, [God, Hover, Role, Active]);
 
-    console.log("God " + god);
-    console.log("God2 " + god2);
-    console.log("Hover " + hover);
-    console.log("Role " + role);
-
     if (god !== "") {
         if (god.match(/([A-z]+[ ]{1,})+[A-z]+/g)) {
             if (god === "ah muzen cab") {
