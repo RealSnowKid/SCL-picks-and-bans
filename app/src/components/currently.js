@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ImArrowLeft, ImArrowRight } from 'react-icons/im';
 
-export default function Currently({ data }) {
+export default function Currently({ data, timerValue }) {
     const [details, setDetails] = useState([]);
     useEffect(() => {
         setDetails(data);
