@@ -6,11 +6,10 @@ import SmallGodBan from './smallGodBan';
 import Timer from './timer';
 
 
-export default function MatchInfo({ message }) {
+export default function MatchInfo({ message, stepNumber }) {
     const [data, setData] = useState([]);
 
     //#region stepNumber and functions
-    const [stepNumber, setStepNumber] = useState(1);
     const isOrderPaused = () => {
         if (stepNumber == 1 || stepNumber == 3 || stepNumber == 5 || stepNumber == 7 || stepNumber == 9 || stepNumber == 12 || stepNumber == 14 || stepNumber == 16) {
             return false;
@@ -44,8 +43,6 @@ export default function MatchInfo({ message }) {
                     <div className="flex flex-col">
                         <h1 className="mx-auto">Currently</h1>
                         {/* fancy timers order and chaos */}
-                        {/* button to manually update to next step */}
-                        <button onClick={() => { setStepNumber(stepNumber + 1); }}>setStepNumber + 1</button>
                         <Timer stepNumber={stepNumber} pickSide={0} paused={isOrderPaused()} color={"blue"} />
                         <Timer stepNumber={stepNumber} pickSide={1} paused={isChaosPaused()} color={"red"} />
                         <Currently data={data[0]} />
