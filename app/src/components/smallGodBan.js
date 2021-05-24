@@ -21,6 +21,7 @@ export default function SmallGodBan({ God, Role }) {
             }
         }
         url = "https://webcdn.hirezstudios.com/smite/god-icons/" + god + ".jpg";
+        varClassName = "filter grayscale";
     }
     else {
         url = "https://i.imgur.com/Bx0iFjJ.png";
@@ -29,7 +30,7 @@ export default function SmallGodBan({ God, Role }) {
 
     return (
         <>
-            <img src={url} className={varClassName} alt={"pick-" + role} />
+            <img src={url} className={varClassName} alt={"ban-" + role} />
         </>
     );
 }
