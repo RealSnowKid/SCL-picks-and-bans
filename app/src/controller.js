@@ -93,28 +93,16 @@ export default function Controller() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        let newJson1 =
-        {
-            matchScoreT1: e.target[0].value.split('-')[0],
-            matchScoreT2: e.target[0].value.split('-')[1],
-            patch: e.target[1].value,
-            ob1: true,
-        };
-        let newJson2 =
-        {
-            name: e.target[2].value,
-            logo: e.target[3].value,
-            leagueScore: e.target[4].value,
-        };
-        let newJson3 =
-        {
-            name: e.target[5].value,
-            logo: e.target[6].value,
-            leagueScore: e.target[7].value,
-        };
-        json[0].push(newJson1);
-        json[1].push(newJson2);
-        json[2].push(newJson3);
+        json[0].matchScoreT1 = e.target[0].value.split('-')[0];
+        json[0].matchScoreT2 = e.target[0].value.split('-')[1];
+        json[0].patch = e.target[1].value;
+        json[0].ob1 = true;
+        json[1].name = e.target[2].value;
+        json[1].logo = e.target[3].value;
+        json[1].leagueScore = e.target[4].value;
+        json[2].name = e.target[5].value;
+        json[2].logo = e.target[6].value;
+        json[2].leagueScore = e.target[7].value;
         console.log(json);
         sock.send(JSON.stringify(json));
     }
