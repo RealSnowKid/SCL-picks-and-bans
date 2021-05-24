@@ -161,50 +161,65 @@ export default function Controller() {
                 setStep(5);
                 break;
             case 5:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
+                json[0].ob3 = false;
+                json[0].cb3 = true;
                 if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                    json[1].ban3 = newStepData.target[0].value;
                 }
                 setStep(6);
                 break;
             case 6:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
+                json[0].cb3 = false;
+                json[0].op1 = true;
                 if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                    json[2].ban3 = newStepData.target[0].value;
                 }
                 setStep(7);
                 break;
             case 7:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
+                json[0].op1 = false;
+                json[0].cp1 = true;
+                json[0].cp2 = true;
                 if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                    json[1].pick1 = newStepData.target[0].value;
                 }
                 setStep(8);
                 break;
             case 8:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData.target[0].id === "form1" && newStepData.target[0].value !== "") {
+                    json[0].cp1 = false;
+                    json[2].pick1 = newStepData.target[0].value;
                 }
-                setStep(9);
+                if (newStepData.target[0].id === "form2" && newStepData.target[0].value !== "") {
+                    json[0].cp2 = false;
+                    json[2].pick2 = newStepData.target[0].value;
+                }
+                if (json[2].pick1 !== "" && json[2].pick2 !== "") {
+                    setStep(9);
+                    json[0].op2 = true;
+                    json[0].op3 = true;
+                }
                 break;
             case 9:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData.target[0].id === "form1" && newStepData.target[0].value !== "") {
+                    json[0].op2 = false;
+                    json[1].pick2 = newStepData.target[0].value;
                 }
-                setStep(10);
+                if (newStepData.target[0].id === "form2" && newStepData.target[0].value !== "") {
+                    json[0].op3 = false;
+                    json[1].pick3 = newStepData.target[0].value;
+                }
+                if (json[1].pick2 !== "" && json[1].pick3 !== "") {
+                    setStep(10);
+                    json[0].cp3 = true;
+                }
                 break;
+            // DONE TO HERE
             case 10:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
+                json[0].op1 = false;
+                json[0].cb4 = true;
                 if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                    json[2].pick3 = newStepData.target[0].value;
                 }
                 setStep(11);
                 break;
@@ -224,12 +239,54 @@ export default function Controller() {
                 }
                 setStep(13);
                 break;
+            case 13:
+                json[0].ob2 = false;
+                json[0].cb2 = true;
+                if (newStepData.target[0].value !== "") {
+                    json[1].ban2 = newStepData.target[0].value;
+                }
+                setStep(14);
+                break;
+            case 14:
+                json[0].ob2 = false;
+                json[0].cb2 = true;
+                if (newStepData.target[0].value !== "") {
+                    json[1].ban2 = newStepData.target[0].value;
+                }
+                setStep(15);
+                break;
+            case 15:
+                json[0].ob2 = false;
+                json[0].cb2 = true;
+                if (newStepData.target[0].value !== "") {
+                    json[1].ban2 = newStepData.target[0].value;
+                }
+                setStep(16);
+                break;
+            case 16:
+                json[0].ob2 = false;
+                json[0].cb2 = true;
+                if (newStepData.target[0].value !== "") {
+                    json[1].ban2 = newStepData.target[0].value;
+                }
+                setStep(17);
+                break;
+            case 17:
+                json[0].ob2 = false;
+                json[0].cb2 = true;
+                if (newStepData.target[0].value !== "") {
+                    json[1].ban2 = newStepData.target[0].value;
+                }
+                setStep(18);
+                break;
 
             default:
                 break;
         }
 
+
         console.log(json);
+        setTimeout(1000);
         sock.send(JSON.stringify(json));
     }
 
@@ -242,18 +299,15 @@ export default function Controller() {
             console.log('close');
         };
 
+        sock.onmessage = (e) => {
+            setData(JSON.parse(e.data));
+        };
+
         return () => {
             sock.close();
         }
         // eslint-disable-next-line
     }, [])
-
-    useEffect(() => {
-        sock.onmessage = (e) => {
-            setData(JSON.parse(e.data));
-        };
-        // eslint-disable-next-line
-    }, [updateStepData])
 
     return (
         <div className="flex flex-col h-screen">
