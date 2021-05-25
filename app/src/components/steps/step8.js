@@ -1,18 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react';
+import GodList from '../godlist';
 
-export default function Step8({ updateFunc }) {
+export default function Step8({ updateFunc, alrdyPickedGods }) {
+    const [lock1, setLock1] = useState(false);
+    const [lock2, setLock2] = useState(false);
+
+    function godHover(data) {
+        updateFunc(["hover", data]);
+    }
+
+    function godHover2(data) {
+        updateFunc(["hover2", data]);
+    }
+
+    function lockIn(data) {
+        updateFunc(["lock", data]);
+        setLock1(true);
+    }
+
+    function lockIn2(data) {
+        updateFunc(["lock2", data]);
+        setLock2(true);
+    }
     return (
-        <>
-            <form className="flex flex-col h-20" onSubmit={updateFunc}>
-                <h1 className="text-2xl mx-auto">Chaos First Pick</h1>
-                <input id="form1" className="w-3/4 mx-auto my-1" type="text" placeholder="God" />
-                <button className="w-1/2 mx-auto bg-white rounded border border-black hover:bg-gray-300" type="submit">Send</button>
-            </form>
-            <form className="flex flex-col h-20 mt-10" onSubmit={updateFunc}>
-                <h1 className="text-2xl mx-auto">Chaos Second Pick</h1>
-                <input id="form2" className="w-3/4 mx-auto my-1" type="text" placeholder="God" />
-                <button className="w-1/2 mx-auto bg-white rounded border border-black hover:bg-gray-300" type="submit">Send</button>
-            </form>
-        </>
-    )
+        <div className="flex flex-col h-92% mt-1">
+            <h1 className="text-2xl text-center text-white">Chaos First Pick {lock1 ? "Done" : ""}</h1>
+            {lock1 ? <></> : <GodList pickedGods={alrdyPickedGods} lockInGod={lockIn} hover={godHover} />}
+            <h1 className="text-2xl text-center text-white">Chaos Second Pick {lock2 ? "Done" : ""}</h1>
+            {lock2 ? <></> : <GodList pickedGods={alrdyPickedGods} lockInGod={lockIn2} hover={godHover2} />}
+        </div>
+    );
 }

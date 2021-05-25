@@ -30,6 +30,10 @@ function GodPick({ God, Hover, Role, Active }) {
                 setGod(god.replace(/[ ]{1,}/g, "_"));
                 setGod2("daji");
             }
+            else if (god === "chang'e") {
+                setGod("change");
+                setGod2("change");
+            }
             else {
                 setGod(god.replace(/[ ]{1,}/g, "_"));
                 setGod2(god2.replace(/[ ]{1,}/g, "-"));

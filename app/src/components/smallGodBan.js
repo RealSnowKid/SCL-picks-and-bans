@@ -16,6 +16,9 @@ export default function SmallGodBan({ God, Role }) {
             if (god === "ah muzen cab") {
                 setGod("ah-muzen-cab");
             }
+            else if (god === "chang'e") {
+                setGod("change");
+            }
             else {
                 setGod(god.replace(/[ ]{1,}/g, "-"));
             }

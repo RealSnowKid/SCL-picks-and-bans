@@ -34,6 +34,9 @@ function GodBan({ God, Number, Position, Active }) {
         if (god.match(/([A-z]+[ ]{1,})+[A-z]+/g)) {
             setGod(god.replace(/[ ]{1,}/g, "-"));
         }
+        else if (god === "chang'e") {
+            setGod("change");
+        }
         imgUrl = "https://webcdn.hirezstudios.com/smite/god-icons/" + god + ".jpg";
         imgClassName = "";
     }

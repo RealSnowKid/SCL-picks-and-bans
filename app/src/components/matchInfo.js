@@ -98,31 +98,31 @@ export default function MatchInfo({ message, stepNumber }) {
                             <div className="flex-column">
                                 <div>
                                     <div className="w-16 h-16 bg-black my-2">
-                                        <SmallGodPick God={data[1].pick1} Role="solo-1" />
+                                        <SmallGodPick God={data[1].pick1} Hover={data[1].pick1Hover} Role="solo-1" />
                                     </div>
                                     <h1 className="text-xl mx-2">Pick 1</h1>
                                 </div>
                                 <div>
                                     <div className="w-16 h-16 bg-black my-2">
-                                        <SmallGodPick God={data[1].pick2} Role="jung-1" />
+                                        <SmallGodPick God={data[1].pick2} Hover={data[1].pick2Hover} Role="jung-1" />
                                     </div>
                                     <h1 className="text-xl mx-2">Pick 2</h1>
                                 </div>
                                 <div>
                                     <div className="w-16 h-16 bg-black my-2">
-                                        <SmallGodPick God={data[1].pick3} Role="mid-1" />
+                                        <SmallGodPick God={data[1].pick3} Hover={data[1].pick3Hover} Role="mid-1" />
                                     </div>
                                     <h1 className="text-xl mx-2">Pick 3</h1>
                                 </div>
                                 <div>
                                     <div className="w-16 h-16 bg-black my-2">
-                                        <SmallGodPick God={data[1].pick4} Role="supp-1" />
+                                        <SmallGodPick God={data[1].pick4} Hover={data[1].pick4Hover} Role="supp-1" />
                                     </div>
                                     <h1 className="text-xl mx-2">Pick 4</h1>
                                 </div>
                                 <div>
                                     <div className="w-16 h-16 bg-black my-2">
-                                        <SmallGodPick God={data[1].pick5} Role="adc-1" />
+                                        <SmallGodPick God={data[1].pick5} Hover={data[1].pick5Hover} Role="adc-1" />
                                     </div>
                                     <h1 className="text-xl mx-2">Pick 5</h1>
                                 </div>
@@ -172,31 +172,31 @@ export default function MatchInfo({ message, stepNumber }) {
                         <div className="flex-column">
                             <div>
                                 <div className="w-16 h-16 bg-black my-2">
-                                    <SmallGodPick God={data[2].pick1} Role="solo-2" />
+                                    <SmallGodPick God={data[2].pick1} Hover={data[2].pick1Hover} Role="solo-2" />
                                 </div>
                                 <h1 className="text-xl mx-2">Pick 1</h1>
                             </div>
                             <div>
                                 <div className="w-16 h-16 bg-black my-2">
-                                    <SmallGodPick God={data[2].pick2} Role="jung-2" />
+                                    <SmallGodPick God={data[2].pick2} Hover={data[2].pick2Hover} Role="jung-2" />
                                 </div>
                                 <h1 className="text-xl mx-2">Pick 2</h1>
                             </div>
                             <div>
                                 <div className="w-16 h-16 bg-black my-2">
-                                    <SmallGodPick God={data[2].pick3} Role="mid-2" />
+                                    <SmallGodPick God={data[2].pick3} Hover={data[2].pick3Hover} Role="mid-2" />
                                 </div>
                                 <h1 className="text-xl mx-2">Pick 3</h1>
                             </div>
                             <div>
                                 <div className="w-16 h-16 bg-black my-2">
-                                    <SmallGodPick God={data[2].pick4} Role="supp-2" />
+                                    <SmallGodPick God={data[2].pick4} Hover={data[2].pick4Hover} Role="supp-2" />
                                 </div>
                                 <h1 className="text-xl mx-2">Pick 4</h1>
                             </div>
                             <div>
                                 <div className="w-16 h-16 bg-black my-2">
-                                    <SmallGodPick God={data[2].pick5} Role="adc-2" />
+                                    <SmallGodPick God={data[2].pick5} Hover={data[2].pick5Hover} Role="adc-2" />
                                 </div>
                                 <h1 className="text-xl mx-2">Pick 5</h1>
                             </div>

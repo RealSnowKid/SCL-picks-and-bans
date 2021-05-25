@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-export default function SmallGodPick({ God, Role }) {
+export default function SmallGodPick({ God, Hover, Role }) {
     const [god, setGod] = useState("");
     const [role, setRole] = useState("");
+    const [hover, setHover] = useState(true);
     let url;
     let varClassName;
 
     useEffect(() => {
         setGod(God.toString().toLowerCase());
         setRole(Role);
+        setHover(Hover);
     }, [God, Role]);
 
     if (god !== "") {
@@ -16,11 +18,20 @@ export default function SmallGodPick({ God, Role }) {
             if (god === "ah muzen cab") {
                 setGod("ah-muzen-cab");
             }
+            else if (god === "chang'e") {
+                setGod("change");
+            }
             else {
                 setGod(god.replace(/[ ]{1,}/g, "-"));
             }
         }
         url = "https://webcdn.hirezstudios.com/smite/god-icons/" + god + ".jpg";
+        if (hover) {
+            varClassName = "filter grayscale";
+        }
+        else {
+            varClassName = "filter-none";
+        }
     }
     else {
         url = "https://i.imgur.com/Bx0iFjJ.png";

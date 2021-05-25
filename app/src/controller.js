@@ -24,7 +24,7 @@ let json = [
     {
         matchScoreT1: 0,
         matchScoreT2: 0,
-        patch: "",
+        patch: "8.5",
         ob1: false,
         cb1: false,
         ob2: false,
@@ -92,11 +92,12 @@ export default function Controller() {
     const sock = new SockJS('http://localhost:9999/pnb');
     const [things, setData] = useState([]);
     const [step, setStep] = useState(0);
+    const [pickedGods, setPickedGods] = useState([""]);
 
     function updateStepData(newStepData) {
-        newStepData.preventDefault();
         switch (step) {
             case 0:
+                newStepData.preventDefault();
                 if (newStepData.target[0].value !== "") {
                     json[0].matchScoreT1 = newStepData.target[0].value.split('-')[0];
                     json[0].matchScoreT2 = newStepData.target[0].value.split('-')[1];
@@ -127,163 +128,251 @@ export default function Controller() {
                 break;
 
             case 1:
-                json[0].ob1 = false;
-                json[0].cb1 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban1 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].ob1 = false;
+                    json[0].cb1 = true;
+                    json[1].ban1 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(2);
                 }
-                setStep(2);
                 break;
 
             case 2:
-                json[0].cb1 = false;
-                json[0].ob2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[2].ban1 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].cb1 = false;
+                    json[0].ob2 = true;
+                    json[2].ban1 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(3);
                 }
-                setStep(3);
                 break;
 
             case 3:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].ob2 = false;
+                    json[0].cb2 = true;
+                    json[1].ban2 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(4);
                 }
-                setStep(4);
                 break;
             case 4:
-                json[0].cb2 = false;
-                json[0].ob3 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[2].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].cb2 = false;
+                    json[0].ob3 = true;
+                    json[2].ban2 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(5);
                 }
-                setStep(5);
                 break;
             case 5:
-                json[0].ob3 = false;
-                json[0].cb3 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban3 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].ob3 = false;
+                    json[0].cb3 = true;
+                    json[1].ban3 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(6);
                 }
-                setStep(6);
                 break;
             case 6:
-                json[0].cb3 = false;
-                json[0].op1 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[2].ban3 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].cb3 = false;
+                    json[0].op1 = true;
+                    json[2].ban3 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(7);
                 }
-                setStep(7);
                 break;
             case 7:
-                json[0].op1 = false;
-                json[0].cp1 = true;
-                json[0].cp2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].pick1 = newStepData.target[0].value;
+                if (newStepData[0] === "hover") {
+                    json[1].pick1 = newStepData[1];
+                    json[1].pick1Hover = true;
                 }
-                setStep(8);
+                if (newStepData[0] === "lock") {
+                    json[0].op1 = false;
+                    json[0].cp1 = true;
+                    json[0].cp2 = true;
+                    json[1].pick1 = newStepData[1];
+                    json[1].pick1Hover = false;
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(8);
+                }
                 break;
             case 8:
-                if (newStepData.target[0].id === "form1" && newStepData.target[0].value !== "") {
-                    json[0].cp1 = false;
-                    json[2].pick1 = newStepData.target[0].value;
+                switch (newStepData[0]) {
+                    case "hover":
+                        json[2].pick1 = newStepData[1];
+                        json[2].pick1Hover = true;
+                        break;
+                    case "lock":
+                        json[0].cp1 = false;
+                        json[2].pick1 = newStepData[1];
+                        json[2].pick1Hover = false;
+                        setPickedGods([...pickedGods, newStepData[1]]);
+                        break;
+                    case "hover2":
+                        json[2].pick2 = newStepData[1];
+                        json[2].pick2Hover = true;
+                        break;
+                    case "lock2":
+                        json[0].cp2 = false;
+                        json[2].pick2 = newStepData[1];
+                        json[2].pick2Hover = false;
+                        setPickedGods([...pickedGods, newStepData[1]]);
+                        break;
+                    default:
+                        console.warn("Uh oh step 8");
+                        break;
                 }
-                if (newStepData.target[0].id === "form2" && newStepData.target[0].value !== "") {
-                    json[0].cp2 = false;
-                    json[2].pick2 = newStepData.target[0].value;
-                }
-                if (json[2].pick1 !== "" && json[2].pick2 !== "") {
+                if (json[2].pick1Hover !== true && json[2].pick2Hover !== true) {
                     setStep(9);
                     json[0].op2 = true;
                     json[0].op3 = true;
                 }
                 break;
             case 9:
-                if (newStepData.target[0].id === "form1" && newStepData.target[0].value !== "") {
-                    json[0].op2 = false;
-                    json[1].pick2 = newStepData.target[0].value;
+                switch (newStepData[0]) {
+                    case "hover":
+                        json[1].pick2 = newStepData[1];
+                        json[1].pick2Hover = true;
+                        break;
+                    case "lock":
+                        json[0].op2 = false;
+                        json[1].pick2 = newStepData[1];
+                        json[1].pick2Hover = false;
+                        setPickedGods([...pickedGods, newStepData[1]]);
+                        break;
+                    case "hover2":
+                        json[1].pick3 = newStepData[1];
+                        json[1].pick3Hover = true;
+                        break;
+                    case "lock2":
+                        json[0].op3 = false;
+                        json[1].pick3 = newStepData[1];
+                        json[1].pick3Hover = false;
+                        setPickedGods([...pickedGods, newStepData[1]]);
+                        break;
+                    default:
+                        console.warn("Uh oh step 9");
+                        break;
                 }
-                if (newStepData.target[0].id === "form2" && newStepData.target[0].value !== "") {
-                    json[0].op3 = false;
-                    json[1].pick3 = newStepData.target[0].value;
-                }
-                if (json[1].pick2 !== "" && json[1].pick3 !== "") {
+                if (json[1].pick2Hover !== true && json[1].pick3Hover !== true) {
                     setStep(10);
                     json[0].cp3 = true;
                 }
                 break;
-            // DONE TO HERE
             case 10:
-                json[0].op1 = false;
-                json[0].cb4 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[2].pick3 = newStepData.target[0].value;
+                if (newStepData[0] === "hover") {
+                    json[2].pick3 = newStepData[1];
+                    json[2].pick3Hover = true;
                 }
-                setStep(11);
+                if (newStepData[0] === "lock") {
+                    json[0].cp3 = false;
+                    json[0].cb4 = true;
+                    json[2].pick3 = newStepData[1];
+                    json[2].pick3Hover = false;
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(11);
+                }
                 break;
             case 11:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].cb4 = false;
+                    json[0].ob4 = true;
+                    json[2].ban4 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(12);
                 }
-                setStep(12);
                 break;
             case 12:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].ob4 = false;
+                    json[0].cb5 = true;
+                    json[1].ban4 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(13);
                 }
-                setStep(13);
                 break;
             case 13:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].cb5 = false;
+                    json[0].ob5 = true;
+                    json[2].ban5 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(14);
                 }
-                setStep(14);
                 break;
             case 14:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "lock") {
+                    json[0].ob5 = false;
+                    json[0].cp4 = true;
+                    json[1].ban5 = newStepData[1];
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(15);
                 }
-                setStep(15);
                 break;
             case 15:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "hover") {
+                    json[2].pick4 = newStepData[1];
+                    json[2].pick4Hover = true;
                 }
-                setStep(16);
+                if (newStepData[0] === "lock") {
+                    json[0].cp4 = false;
+                    json[0].op4 = true;
+                    json[0].op5 = true;
+                    json[2].pick4 = newStepData[1];
+                    json[2].pick4Hover = false;
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(16);
+                }
                 break;
             case 16:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                switch (newStepData[0]) {
+                    case "hover":
+                        json[1].pick4 = newStepData[1];
+                        json[1].pick4Hover = true;
+                        break;
+                    case "lock":
+                        json[0].op4 = false;
+                        json[1].pick4 = newStepData[1];
+                        json[1].pick4Hover = false;
+                        setPickedGods([...pickedGods, newStepData[1]]);
+                        break;
+                    case "hover2":
+                        json[1].pick5 = newStepData[1];
+                        json[1].pick5Hover = true;
+                        break;
+                    case "lock2":
+                        json[0].op5 = false;
+                        json[1].pick5 = newStepData[1];
+                        json[1].pick5Hover = false;
+                        setPickedGods([...pickedGods, newStepData[1]]);
+                        break;
+                    default:
+                        console.warn("Uh oh step 16");
+                        break;
                 }
-                setStep(17);
+                if (json[1].pick4Hover !== true && json[1].pick5Hover !== true) {
+                    setStep(17);
+                    json[0].cp5 = true;
+                }
                 break;
             case 17:
-                json[0].ob2 = false;
-                json[0].cb2 = true;
-                if (newStepData.target[0].value !== "") {
-                    json[1].ban2 = newStepData.target[0].value;
+                if (newStepData[0] === "hover") {
+                    json[2].pick5 = newStepData[1];
+                    json[2].pick5Hover = true;
                 }
-                setStep(18);
+                if (newStepData[0] === "lock") {
+                    json[0].cp5 = false;
+                    json[2].pick5 = newStepData[1];
+                    json[2].pick5Hover = false;
+                    setPickedGods([...pickedGods, newStepData[1]]);
+                    setStep(1);
+                }
                 break;
-
             default:
                 break;
         }
-
 
         console.log(json);
         setTimeout(1000);
@@ -308,37 +397,36 @@ export default function Controller() {
         }
         // eslint-disable-next-line
     }, [])
-
     return (
         <div className="flex flex-col h-screen">
-            <div className="w-full bg-yellow-600 h-20 text-center">
-                <h1 className="text-7xl text-white mt-1">SCL PICKS & BANS CONTROLLER PAGE</h1>
+            <div className="w-full bg-yellow-600 text-center">
+                <h1 className="text-6xl text-white mt-0.5 mb-0.5">SCL PICKS & BANS CONTROLLER PAGE</h1>
             </div>
             <hr className="h-2 border-black bg-black" />
             <div className="flex flex-row w-full h-full">
                 <div className="w-1/2 h-full bg-snl-yellow">
                     {step === 0 ? <Step0 updateFunc={updateStepData} /> : <></>}
-                    {step === 1 ? <Step1 updateFunc={updateStepData} /> : <></>}
-                    {step === 2 ? <Step2 updateFunc={updateStepData} /> : <></>}
-                    {step === 3 ? <Step3 updateFunc={updateStepData} /> : <></>}
-                    {step === 4 ? <Step4 updateFunc={updateStepData} /> : <></>}
-                    {step === 5 ? <Step5 updateFunc={updateStepData} /> : <></>}
-                    {step === 6 ? <Step6 updateFunc={updateStepData} /> : <></>}
-                    {step === 7 ? <Step7 updateFunc={updateStepData} /> : <></>}
-                    {step === 8 ? <Step8 updateFunc={updateStepData} /> : <></>}
-                    {step === 9 ? <Step9 updateFunc={updateStepData} /> : <></>}
-                    {step === 10 ? <Step10 updateFunc={updateStepData} /> : <></>}
-                    {step === 11 ? <Step11 updateFunc={updateStepData} /> : <></>}
-                    {step === 12 ? <Step12 updateFunc={updateStepData} /> : <></>}
-                    {step === 13 ? <Step13 updateFunc={updateStepData} /> : <></>}
-                    {step === 14 ? <Step14 updateFunc={updateStepData} /> : <></>}
-                    {step === 15 ? <Step15 updateFunc={updateStepData} /> : <></>}
-                    {step === 16 ? <Step16 updateFunc={updateStepData} /> : <></>}
-                    {step === 17 ? <Step17 updateFunc={updateStepData} /> : <></>}
+                    {step === 1 ? <Step1 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 2 ? <Step2 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 3 ? <Step3 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 4 ? <Step4 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 5 ? <Step5 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 6 ? <Step6 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 7 ? <Step7 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 8 ? <Step8 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 9 ? <Step9 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 10 ? <Step10 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 11 ? <Step11 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 12 ? <Step12 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 13 ? <Step13 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 14 ? <Step14 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 15 ? <Step15 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 16 ? <Step16 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
+                    {step === 17 ? <Step17 updateFunc={updateStepData} alrdyPickedGods={pickedGods} /> : <></>}
                 </div>
                 <div className="w-1/2 h-full bg-snl-dark">
                     <div className="w-full flex">
-                        <MatchInfo message={things} stepNumber={step}/>
+                        <MatchInfo message={things} stepNumber={step} />
                     </div>
                 </div>
             </div>

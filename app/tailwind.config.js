@@ -15,6 +15,9 @@ module.exports = {
                 'snl-dark-lighter': '#3f6283',
                 'snl-grey': '#4c4c4e',
             },
+            height: {
+                '92%': '92%',
+            }
         },
     },
     variants: {
