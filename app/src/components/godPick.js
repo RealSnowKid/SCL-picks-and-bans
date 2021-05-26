@@ -71,7 +71,7 @@ function GodPick({ God, Hover, Role, Active }) {
         <div className={varContainerClassName}>
             <img src={url} className={varClassName} alt={"pick-" + role} />
             {/* <h2 className="text-white relative top-7">Nike</h2> */}
-            <div className={varClassNameHover}><img alt="hover"></img></div>
+            <div className={varClassNameHover}></div>
             { active ? <div className={varBlinkerClassName}></div> : <> </>}
         </div>
     );
