@@ -17,7 +17,6 @@ function broadcast(message) {
 }
 
 echo.on('connection', function (conn) {
-    // add this client to clients object
     console.log("connect: " + conn.id);
     clients[conn.id] = conn;
     conn.on('data', function (message) {
@@ -30,6 +29,12 @@ echo.on('connection', function (conn) {
     });
 });
 
+app.get('/', (req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.write('Hello World!');
+    res.end();
+})
+
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'app/build')));
@@ -39,10 +44,6 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-var server = http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('Hello World!');
-    res.end();
-});
+const server = http.createServer(app);
 echo.installHandlers(server, { prefix: '/pnb' });
 server.listen(process.env.PORT || 9999);
