@@ -1193,11 +1193,11 @@
 
 /* image transition to prevent image shifts being visisble */
 .easin-src {
-    transition: opacity 0.3s ease-in;
-    -webkit-transition: opacity 0.3s ease-in;
-    -moz-transition: opacity 0.3s ease-in;
-    -ms-transition: opacity 0.3s ease-in;
-    -o-transition: opacity 0.3s ease-in;
+    transition: opacity 0.4s ease-in;
+    -webkit-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -ms-transition: opacity 0.4s ease-in;
+    -o-transition: opacity 0.4s ease-in;
     opacity: 1;
 }
 
