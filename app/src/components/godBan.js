@@ -19,11 +19,9 @@ function GodBan({ God, Number, Position, Active }) {
             }, 300);
     };
 
-    useEffect(() => {
-        imageLoading();
-    }, [god]);
 
     useEffect(() => {
+        imageLoading();
         setGod(God.toString().toLowerCase());
         setNumber(Number);
         setPosition(Position);
