@@ -43,9 +43,11 @@ function GodPick({ God, Hover, Role, Active }) {
         varClassName = god2;
         if (hover) {
             varClassNameHover = "hover-" + role;
+            varContainerClassName = "h-32 w-80 mx-2 mt-2 overflow-hidden border-2 border-white";
         }
         else {
             varClassNameHover = "hover-" + role + " locked";
+            varContainerClassName = "h-32 w-80 mx-2 mt-2 overflow-hidden border-2 border-white";
         }
 
     }
