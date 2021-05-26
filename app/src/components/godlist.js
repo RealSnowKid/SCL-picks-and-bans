@@ -66,7 +66,7 @@ export default function GodList({ pickedGods, hover, lockInGod }) {
                     <div className="flex flex-wrap">
                         {filteredGods?.length > 0 ?
                             filteredGods.map((g, index) => (
-                                <div key={g.id} className={`md:w-24 px-4 mb-6`} onClick={(e) => { selectGod(g.name.toLowerCase()) }} ><img className={`rounded shadow-md ${g.name.toLowerCase() == selectedGod ? "border-solid border-4 border-blue-500" : ""}`} src={g.godIcon_URL} alt="" /></div>
+                                <div key={g.id} className={`md:w-24 px-4 mb-6`} onClick={(e) => { selectGod(g.name.toLowerCase()) }} ><img className={`rounded shadow-md ${g.name.toLowerCase() == selectedGod ? "border-solid border-4 border-blue-500" : ""}`} src={g.godIcon_URL} alt="" draggable={"false"}/></div>
                             )) : ""}
                     </div>
                 </section>
