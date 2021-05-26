@@ -30,9 +30,9 @@ echo.on('connection', function (conn) {
 });
 
 app.get('/', (req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('Hello World!');
-    res.end();
+    // res.writeHead(200, { 'Content-Type': 'text/plain' });
+    // res.write('Hello World!');
+    // res.end();
 })
 
 if (process.env.NODE_ENV === 'production') {
