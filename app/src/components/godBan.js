@@ -10,6 +10,18 @@ function GodBan({ God, Number, Position, Active }) {
     let imgUrl;
     let imgClassName;
     let blinkerClassName;
+    const [transition, setTransition] = useState(true);
+
+    const imageLoading = () => {
+        setTransition(true);
+            setTimeout(() => {
+                setTransition(false);
+            }, 300);
+    };
+
+    useEffect(() => {
+        imageLoading();
+    }, [god]);
 
     useEffect(() => {
         setGod(God.toString().toLowerCase());
@@ -57,7 +69,7 @@ function GodBan({ God, Number, Position, Active }) {
     return (
         <>
             <div className={divClassName}>
-                <div className={"ban-god-icon-" + position}><img className={imgClassName} src={imgUrl} alt={"ban" + number} /></div>
+                <div className={"ban-god-icon-" + position}><img className={`${imgClassName} ${transition ? "transitioning-src" : "easin-src"}`} src={imgUrl} alt={"ban" + number} /></div>
                 {active ? <div className={blinkerClassName}></div> : <></>}
             </div>
             <FaBan className={"text-red-600 " + position + "-ban-" + number} />
