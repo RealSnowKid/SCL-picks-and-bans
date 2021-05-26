@@ -1,6 +1,6 @@
 # Smite Champions League Picks and Bans for Broadcast
 
-## [Smite Champions League](https://smitenoobleague.com/) <img src="https://i.imgur.com/Bx0iFjJ.png" width="40" alt="SCL Logo">
+## [Smite Champions League](https://smitenoobleague.com/) <a href="https://smitenoobleague.com/"><img src="https://i.imgur.com/Bx0iFjJ.png" width="40" alt="SCL Logo"></a>
 An automated Smite amateur league for players of all skill levels.
 
 ## This project uses:
