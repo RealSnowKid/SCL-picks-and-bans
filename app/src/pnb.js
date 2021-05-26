@@ -5,7 +5,7 @@ import GodBan from './components/godBan';
 import SockJS from 'sockjs-client';
 
 function Pnb() {
-    const sock = new SockJS('http://localhost:9999/pnb');
+    const sock = new SockJS('https://snl-picks-and-bans.herokuapp.com/pnb');
     const [data, setData] = useState([]);
 
     useEffect(() => {
