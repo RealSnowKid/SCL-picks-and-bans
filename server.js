@@ -1,5 +1,6 @@
 const http = require('http');
 const sockjs = require('sockjs');
+const app = express();
 
 const echo = sockjs.createServer({ prefix: '/echo' });
 var clients = {};
@@ -26,6 +27,15 @@ echo.on('connection', function (conn) {
         delete clients[conn.id];
     });
 });
+
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'app/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
+    });
+}
 
 var server = http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
