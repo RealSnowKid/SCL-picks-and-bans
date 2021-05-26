@@ -42,11 +42,11 @@ function GodPick({ God, Hover, Role, Active }) {
         url = "https://webcdn.hirezstudios.com/smite/god-skins/" + god + "_standard-" + god2 + ".jpg";
         varClassName = god2;
         if (hover) {
-            varClassNameHover = "hover-" + role;
+            varClassNameHover = "hover-" + role + "opacity-70";
             varContainerClassName = "h-32 w-80 mx-2 mt-2 overflow-hidden border-2 border-white";
         }
         else {
-            varClassNameHover = "hover-" + role + " locked";
+            varClassNameHover = "hover-" + role + "opacity-70" + " locked";
             varContainerClassName = "h-32 w-80 mx-2 mt-2 overflow-hidden border-2 border-white";
         }
 

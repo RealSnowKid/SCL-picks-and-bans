@@ -384,7 +384,7 @@
 
 .hover-solo {
     background-color: black;
-    opacity: 70%;
+    /* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 12rem;
@@ -397,7 +397,7 @@
 
 .hover-solo-2 {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 12rem;
@@ -410,7 +410,7 @@
 
 .hover-jung {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 20.9rem;
@@ -423,7 +423,7 @@
 
 .hover-jung-2 {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 20.9rem;
@@ -436,7 +436,7 @@
 
 .hover-mid {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 29.8rem;
@@ -449,7 +449,7 @@
 
 .hover-mid-2 {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 29.8rem;
@@ -462,7 +462,7 @@
 
 .hover-supp {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 38.7rem;
@@ -475,7 +475,7 @@
 
 .hover-supp-2 {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 38.7rem;
@@ -488,7 +488,7 @@
 
 .hover-adc {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 47.6rem;
@@ -501,7 +501,7 @@
 
 .hover-adc-2 {
     background-color: black;
-    opacity: 70%;
+/* opacity: 70%; */
     position: absolute;
     overflow: hidden;
     top: 47.6rem;
