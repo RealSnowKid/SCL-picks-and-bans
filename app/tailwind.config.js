@@ -1,8 +1,7 @@
 // tailwind.config.js
 module.exports = {
     purge: {
-        enable: false,
-        content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html']
+        enable: false
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
