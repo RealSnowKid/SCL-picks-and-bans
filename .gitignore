@@ -26,6 +26,7 @@ app/.env.development.local
 app/.env.test.local
 app/.env.production.local
 app/package-lock.json
+package-lock.json
 
 npm-debug.log*
 yarn-debug.log*
