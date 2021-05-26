@@ -15,9 +15,9 @@ function GodPick({ God, Hover, Role, Active }) {
 
     const imageLoading = () => {
         setTransition(true);
-            setTimeout(() => {
-                setTransition(false);
-            }, 600);
+            // setTimeout(() => {
+            //     setTransition(false);
+            // }, 600);
     };
 
     useEffect(() => {
@@ -84,7 +84,7 @@ function GodPick({ God, Hover, Role, Active }) {
 
     return (
         <div className={varContainerClassName}>
-            <img src={url} className={`${varClassName} ${transition ? "transitioning-src" : "easin-src"}`} alt={"pick-" + role}/>
+            <img src={url} onLoad={() => setTransition(false)} className={`${varClassName} ${transition ? "transitioning-src" : "easin-src"}`} alt={"pick-" + role}/>
             {/* <h2 className="text-white relative top-7">Nike</h2> */}
             <div className={varClassNameHover}></div>
             { active ? <div className={varBlinkerClassName}></div> : <> </>}
