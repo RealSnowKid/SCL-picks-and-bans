@@ -19,9 +19,12 @@ function GodBan({ God, Number, Position, Active }) {
             }, 300);
     };
 
-
     useEffect(() => {
         imageLoading();
+    }, [God])
+
+
+    useEffect(() => {
         setGod(God.toString().toLowerCase());
         setNumber(Number);
         setPosition(Position);
@@ -30,14 +33,14 @@ function GodBan({ God, Number, Position, Active }) {
 
     if (number === 3) {
         if (position === "left") {
-            divClassName = "bans-left ml-2 mr-12 overflow-hidden border-2 border-white";
+            divClassName = "bg-black bans-left ml-2 mr-12 overflow-hidden border-2 border-white";
         }
         else {
-            divClassName = "bans-right ml-12 mx-2 overflow-hidden border-2 border-white";
+            divClassName = "bg-black bans-right ml-12 mx-2 overflow-hidden border-2 border-white";
         }
     }
     else {
-        divClassName = "mx-2 overflow-hidden border-2 border-white bans-" + position;
+        divClassName = "bg-black mx-2 overflow-hidden border-2 border-white bans-" + position;
     }
 
     if (god !== "") {
