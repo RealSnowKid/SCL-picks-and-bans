@@ -18,13 +18,14 @@ export default function SmallGodPick({ God, Hover, Role }) {
             if (god === "ah muzen cab") {
                 setGod("ah-muzen-cab");
             }
-            else if (god === "chang'e") {
-                setGod("change");
-            }
             else {
                 setGod(god.replace(/[ ]{1,}/g, "-"));
             }
         }
+        else if (god === "chang'e") {
+            setGod("change");
+        }
+
         url = "https://webcdn.hirezstudios.com/smite/god-icons/" + god + ".jpg";
         if (hover) {
             varClassName = "filter grayscale";

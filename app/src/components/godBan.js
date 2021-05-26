@@ -31,7 +31,7 @@ function GodBan({ God, Number, Position, Active }) {
     }
 
     if (god !== "") {
-        if (god.match(/([A-z]+[ ]{1,})+[A-z]+/g)) {
+        if (god.match(/([A-z\']+[ ]{1,})+[A-z]+/g)) {
             setGod(god.replace(/[ ]{1,}/g, "-"));
         }
         else if (god === "chang'e") {

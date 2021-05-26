@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useCountDown from 'react-countdown-hook';
 
 
-export default function Timer({ stepNumber, pickSide, paused, color }) {
+export default function Timer({ stepNumber, pickSide, paused }) {
   const [orderBankTimeValue, setOrderBankTimeValue] = useState(90 * 1000);
   const [chaosBankTimeValue, setChaosBankTimeValue] = useState(90 * 1000);
   const banTime = 13 * 1000;
@@ -32,6 +32,12 @@ export default function Timer({ stepNumber, pickSide, paused, color }) {
       setTimerTicking(false);
     }
     else {
+      // reset bank timers
+      if(stepNumber === 0)
+      {
+        setOrderBankTimeValue(90);
+        setChaosBankTimeValue(90);
+      }
       //#region ban phase 1
       if (stepNumber === 1) // order ban 1
       {
@@ -156,6 +162,6 @@ export default function Timer({ stepNumber, pickSide, paused, color }) {
   }, [timerValue]);
 
   return (
-    <h3 className={`mx-auto text-${color}-400`}>{timerTicking === false && bankTimerTicking === false ? "" : (timerValue / 1000).toFixed(0)}</h3>
+    <>{timerTicking === false && bankTimerTicking === false ? "" : (timerValue / 1000).toFixed(0)}</>
   );
 }

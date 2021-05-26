@@ -43,8 +43,8 @@ export default function MatchInfo({ message, stepNumber }) {
                     <div className="flex flex-col">
                         <h1 className="mx-auto">Currently</h1>
                         {/* fancy timers order and chaos */}
-                        <Timer stepNumber={stepNumber} pickSide={0} paused={isOrderPaused()} color={"blue"} />
-                        <Timer stepNumber={stepNumber} pickSide={1} paused={isChaosPaused()} color={"red"} />
+                        <h3 className={`mx-auto text-blue-400`}><Timer stepNumber={stepNumber} pickSide={0} paused={isOrderPaused()} /></h3>
+                        <h3 className={`mx-auto text-red-400`}><Timer stepNumber={stepNumber} pickSide={1} paused={isChaosPaused()} /></h3>
                         <Currently data={data[0]} />
                     </div>
                     <div className="flex">

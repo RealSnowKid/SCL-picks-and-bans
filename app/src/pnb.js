@@ -3,10 +3,30 @@ import './pnb.css';
 import GodPick from './components/godPick';
 import GodBan from './components/godBan';
 import SockJS from 'sockjs-client';
+import Timer from './components/timer';
 
 function Pnb() {
     const sock = new SockJS('https://scl-picks-and-bans.herokuapp.com/pnb');
     const [data, setData] = useState([]);
+
+        //#region stepNumber and functions
+        const isOrderPaused = (stepNumber) => {
+            if (stepNumber == 1 || stepNumber == 3 || stepNumber == 5 || stepNumber == 7 || stepNumber == 9 || stepNumber == 12 || stepNumber == 14 || stepNumber == 16) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+        const isChaosPaused = (stepNumber) => {
+            if (stepNumber == 2 || stepNumber == 4 || stepNumber == 6 || stepNumber == 8 || stepNumber == 10 || stepNumber == 11 || stepNumber == 13 || stepNumber == 15 || stepNumber == 17) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+        //#endregion
 
     useEffect(() => {
         sock.onopen = () => {
@@ -42,7 +62,7 @@ function Pnb() {
                     </div>
                     <div className="flex content-between bg-black w-2/5">
                         <div className="flex timer-left items-center">
-                            <h1 className="text-white ml-12 not-italic text-7xl">28</h1>
+                            <h1 className="text-white mx-auto not-italic text-7xl text-center"><Timer stepNumber={data[0].step} pickSide={0} paused={isOrderPaused(data[0].step)} /></h1>
                         </div>
                         <div className="bg-black w-1/2"></div>
                         <div className="flex-col score-box absolute">
@@ -63,7 +83,7 @@ function Pnb() {
                             </div>
                         </div>
                         <div className="flex timer-right items-center">
-                            <h1 className="text-white ml-12 not-italic text-7xl">28</h1>
+                            <h1 className="text-white mx-auto not-italic text-7xl text-center"><Timer stepNumber={data[0].step} pickSide={1} paused={isChaosPaused(data[0].step)} /></h1>
                         </div>
                     </div>
                     <div className="flex flex-row-reverse items-center justify-between bg-gradient-to-l from-snl-yellow to-black w-2/6">

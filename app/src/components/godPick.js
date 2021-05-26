@@ -17,7 +17,7 @@ function GodPick({ God, Hover, Role, Active }) {
         setTransition(true);
             setTimeout(() => {
                 setTransition(false);
-            }, 250);
+            }, 300);
 
     };
 
@@ -43,15 +43,16 @@ function GodPick({ God, Hover, Role, Active }) {
                 setGod(god.replace(/[ ]{1,}/g, "_"));
                 setGod2("daji");
             }
-            else if (god === "chang'e") {
-                setGod("change");
-                setGod2("change");
-            }
             else {
                 setGod(god.replace(/[ ]{1,}/g, "_"));
                 setGod2(god2.replace(/[ ]{1,}/g, "-"));
             }
         }
+        else if (god === "chang'e") {
+            setGod("change");
+            setGod2("change");
+        }
+        
         url = "https://webcdn.hirezstudios.com/smite/god-skins/" + god + "_standard-" + god2 + ".jpg";
         varClassName = god2;
         if (hover) {

@@ -44,7 +44,8 @@ let json = [
         cp4: false,
         op4: false,
         op5: false,
-        cp5: false
+        cp5: false,
+        step: 0,
     },
     {
         name: "Team 1",
@@ -125,6 +126,7 @@ export default function Controller() {
                     json[2].leagueScore = newStepData.target[7].value;
                 }
                 setStep(1);
+                json[0].step = 1;
                 break;
 
             case 1:
@@ -134,6 +136,7 @@ export default function Controller() {
                     json[1].ban1 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(2);
+                    json[0].step = 2;
                 }
                 break;
 
@@ -144,6 +147,7 @@ export default function Controller() {
                     json[2].ban1 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(3);
+                    json[0].step = 3;
                 }
                 break;
 
@@ -154,6 +158,7 @@ export default function Controller() {
                     json[1].ban2 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(4);
+                    json[0].step = 4;
                 }
                 break;
             case 4:
@@ -163,6 +168,7 @@ export default function Controller() {
                     json[2].ban2 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(5);
+                    json[0].step = 5;
                 }
                 break;
             case 5:
@@ -172,6 +178,7 @@ export default function Controller() {
                     json[1].ban3 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(6);
+                    json[0].step = 6;
                 }
                 break;
             case 6:
@@ -181,6 +188,7 @@ export default function Controller() {
                     json[2].ban3 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(7);
+                    json[0].step = 7;
                 }
                 break;
             case 7:
@@ -196,6 +204,7 @@ export default function Controller() {
                     json[1].pick1Hover = false;
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(8);
+                    json[0].step = 8;
                 }
                 break;
             case 8:
@@ -226,6 +235,7 @@ export default function Controller() {
                 }
                 if (json[2].pick1Hover !== true && json[2].pick2Hover !== true) {
                     setStep(9);
+                    json[0].step = 9;
                     json[0].op2 = true;
                     json[0].op3 = true;
                 }
@@ -258,6 +268,7 @@ export default function Controller() {
                 }
                 if (json[1].pick2Hover !== true && json[1].pick3Hover !== true) {
                     setStep(10);
+                    json[0].step = 10;
                     json[0].cp3 = true;
                 }
                 break;
@@ -273,6 +284,7 @@ export default function Controller() {
                     json[2].pick3Hover = false;
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(11);
+                    json[0].step = 11;
                 }
                 break;
             case 11:
@@ -282,6 +294,7 @@ export default function Controller() {
                     json[2].ban4 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(12);
+                    json[0].step = 12;
                 }
                 break;
             case 12:
@@ -291,6 +304,7 @@ export default function Controller() {
                     json[1].ban4 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(13);
+                    json[0].step = 13;
                 }
                 break;
             case 13:
@@ -300,6 +314,7 @@ export default function Controller() {
                     json[2].ban5 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(14);
+                    json[0].step = 14;
                 }
                 break;
             case 14:
@@ -309,6 +324,7 @@ export default function Controller() {
                     json[1].ban5 = newStepData[1];
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(15);
+                    json[0].step = 15;
                 }
                 break;
             case 15:
@@ -324,6 +340,7 @@ export default function Controller() {
                     json[2].pick4Hover = false;
                     setPickedGods([...pickedGods, newStepData[1]]);
                     setStep(16);
+                    json[0].step = 16;
                 }
                 break;
             case 16:
@@ -354,6 +371,7 @@ export default function Controller() {
                 }
                 if (json[1].pick4Hover !== true && json[1].pick5Hover !== true) {
                     setStep(17);
+                    json[0].step = 17;
                     json[0].cp5 = true;
                 }
                 break;
@@ -367,7 +385,8 @@ export default function Controller() {
                     json[2].pick5 = newStepData[1];
                     json[2].pick5Hover = false;
                     setPickedGods([...pickedGods, newStepData[1]]);
-                    setStep(1);
+                    setStep(18);
+                    json[0].step = 18;
                 }
                 break;
             default:
