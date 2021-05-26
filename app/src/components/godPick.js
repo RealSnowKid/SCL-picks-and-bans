@@ -22,7 +22,7 @@ function GodPick({ God, Hover, Role, Active }) {
 
     useEffect(() => {
         imageLoading();
-    }, [god]);
+    }, [God]);
 
     useEffect(() => {
         setGod(God.toString().toLowerCase());
