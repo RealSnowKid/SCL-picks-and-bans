@@ -17,7 +17,7 @@ function GodPick({ God, Hover, Role, Active }) {
         setTransition(true);
             setTimeout(() => {
                 setTransition(false);
-            }, 400);
+            }, 1000);
     };
 
     useEffect(() => {
