@@ -13,10 +13,10 @@ function GodPick({ God, Hover, Role, Active }) {
     };
 
     const imageLoaded = () => {
-         setTimeout(() => {
-                setTransition(false);
+        setTimeout(() => {
+            setTransition(false);
             console.log(`image done ${God}`);
-            }, 400);
+        }, 400);
     };
 
     useEffect(() => {
@@ -53,11 +53,9 @@ function GodPick({ God, Hover, Role, Active }) {
 
             if (Hover === true) {
                 setHoverClass("hover-" + Role.toString() + " opacity-70");
-                setContainerClass("h-32 w-80 mx-2 mt-2 bg-black overflow-hidden border-2 border-white");
             }
             else {
                 setHoverClass("hover-" + Role.toString() + " opacity-70 locked");
-                setContainerClass("h-32 w-80 mx-2 mt-2 bg-black overflow-hidden border-2 border-white");
             }
         }
         else {
@@ -83,7 +81,7 @@ function GodPick({ God, Hover, Role, Active }) {
 
     return (
         <div className={containerClass}>
-            <img src={url} onLoad={imageLoaded} className={`${godClass} ${transition ? "transitioning-src" : "easin-src"}`} alt={"pick-" + Role.toString()}/>
+            <img src={url} onLoad={imageLoaded} className={`${godClass} ${transition ? "transitioning-src" : "easin-src"}`} alt={"pick-" + Role.toString()} />
             {/* <h2 className="text-white relative top-7">Nike</h2> */}
             <div className={transition ? "" : hoverClass}></div>
             { Active ? <div className={blinkerClass}></div> : <> </>}
