@@ -9,24 +9,24 @@ function Pnb() {
     const sock = new SockJS('https://scl-picks-and-bans.herokuapp.com/pnb');
     const [data, setData] = useState([]);
 
-        //#region stepNumber and functions
-        const isOrderPaused = (stepNumber) => {
-            if (stepNumber == 1 || stepNumber == 3 || stepNumber == 5 || stepNumber == 7 || stepNumber == 9 || stepNumber == 12 || stepNumber == 14 || stepNumber == 16) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        };
-        const isChaosPaused = (stepNumber) => {
-            if (stepNumber == 2 || stepNumber == 4 || stepNumber == 6 || stepNumber == 8 || stepNumber == 10 || stepNumber == 11 || stepNumber == 13 || stepNumber == 15 || stepNumber == 17) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        };
-        //#endregion
+    //#region stepNumber and functions
+    const isOrderPaused = (stepNumber) => {
+        if (stepNumber == 1 || stepNumber == 3 || stepNumber == 5 || stepNumber == 7 || stepNumber == 9 || stepNumber == 12 || stepNumber == 14 || stepNumber == 16) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    const isChaosPaused = (stepNumber) => {
+        if (stepNumber == 2 || stepNumber == 4 || stepNumber == 6 || stepNumber == 8 || stepNumber == 10 || stepNumber == 11 || stepNumber == 13 || stepNumber == 15 || stepNumber == 17) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    //#endregion
 
     useEffect(() => {
         sock.onopen = () => {

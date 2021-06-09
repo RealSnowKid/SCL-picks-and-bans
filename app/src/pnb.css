@@ -41,7 +41,7 @@
 .score-box {
     background-color: #1D1E1E;
     width: 21%;
-    height: 9.76rem;
+    height: 9.7rem;
     margin-left: 10rem;
 }
 
@@ -50,6 +50,15 @@
     margin-bottom: 0.5rem;
 }
 
+@media screen and (min-height: 1080px) {
+    .score-box {
+        height: 11.34rem;
+    }
+
+    .m-small-logo {
+        margin-top: 0.7rem;
+    }
+}
 /* 
 =============
     BANS 
