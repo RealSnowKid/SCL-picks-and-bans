@@ -6,7 +6,7 @@ import SockJS from 'sockjs-client';
 import Timer from './components/timer';
 
 function Pnb() {
-    const sock = new SockJS('https://scl-picks-and-bans.herokuapp.com/pnb');
+    const sock = new SockJS(window.location.origin + '/pnb');
     const [data, setData] = useState([]);
 
     //#region stepNumber and functions

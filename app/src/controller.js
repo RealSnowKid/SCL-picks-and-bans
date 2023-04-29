@@ -90,7 +90,7 @@ let json = [
 ]
 
 export default function Controller() {
-    const sock = new SockJS('https://scl-picks-and-bans.herokuapp.com/pnb');
+    const sock = new SockJS(window.location.origin + '/pnb');
     const [things, setData] = useState([]);
     const [step, setStep] = useState(0);
     const [pickedGods, setPickedGods] = useState([""]);

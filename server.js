@@ -3,6 +3,13 @@ const sockjs = require('sockjs');
 const path = require('path');
 const express = require('express');
 const app = express();
+require('dotenv').config();
+const hirez = require("hirez-api-https");
+const api = new hirez.Smite({
+  platform: "PC",
+  devId: process.env.DEV_ID,
+  authKey: process.env.AUTH_KEY
+});
 
 const echo = sockjs.createServer({ prefix: '/echo' });
 var clients = {};
@@ -30,6 +37,11 @@ echo.on('connection', function (conn) {
 });
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'app/build', 'index.html')));
+app.get('/gods', async(req, res) => {
+    data =  await api.session();
+    console.log(data);
+    res.send("hello");
+});
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
