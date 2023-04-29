@@ -45,7 +45,7 @@ export default function GodList({ pickedGods, hover, lockInGod }) {
     };
 
     useEffect(async () => {
-        await axios.get(window.location.origin + "/gods").then(res => {
+        await axios.get("https://smiterandomiser.herokuapp.com/gods").then(res => {
             setGods(res.data.filter(isNotPicked));
             setFilteredGods(res.data.filter(isNotPicked));
         }).catch(err => { console.log(err); });
