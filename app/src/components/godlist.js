@@ -30,7 +30,7 @@ export default function GodList({ pickedGods, hover, lockInGod }) {
     };
 
     function isNotPicked(god) {
-        if (pickedGods.includes(god.name.toLowerCase())) {
+        if (pickedGods.includes(god.Name.toLowerCase())) {
             return false;
         }
         else {
@@ -40,7 +40,7 @@ export default function GodList({ pickedGods, hover, lockInGod }) {
 
     const handleFilter = (e) => {
         setFilter(e.target.value);
-        setFilteredGods(gods.filter(x => x.name.toLowerCase().includes(e.target.value.toLowerCase())));
+        setFilteredGods(gods.filter(x => x.Name.toLowerCase().includes(e.target.value.toLowerCase())));
         setSelectedGod("");
     };
 
@@ -66,7 +66,7 @@ export default function GodList({ pickedGods, hover, lockInGod }) {
                     <div className="flex flex-wrap">
                         {filteredGods?.length > 0 ?
                             filteredGods.map((g, index) => (
-                                <div key={g.id} className={`md:w-24 px-4 mb-6`} onClick={(e) => { selectGod(g.name.toLowerCase()) }} ><img className={`rounded shadow-md ${g.name.toLowerCase() == selectedGod ? "border-solid border-4 border-blue-500" : ""}`} src={g.godIcon_URL} alt="" draggable={"false"}/></div>
+                                <div key={g.id} className={`md:w-24 px-4 mb-6`} onClick={(e) => { selectGod(g.Name.toLowerCase()) }} ><img className={`rounded shadow-md ${g.Name.toLowerCase() == selectedGod ? "border-solid border-4 border-blue-500" : ""}`} src={g.godIcon_URL} alt="" draggable={"false"}/></div>
                             )) : ""}
                     </div>
                 </section>
